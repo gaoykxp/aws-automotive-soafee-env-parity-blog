@@ -1,0 +1,43 @@
+{
+	"RecipeFormatVersion": "2020-01-25",
+	"ComponentName": "com.example.My-YOLO-V6-Application",
+	"ComponentVersion": "1.0.5",
+	"ComponentType": "aws.greengrass.generic",
+	"ComponentDescription": "A component that runs a Docker container from a private Amazon ECR image.",
+	"ComponentPublisher": "Amazon",
+	"ComponentDependencies": {
+		"aws.greengrass.DockerApplicationManager": {
+			"VersionRequirement": ">=2.0.0 <2.1.0",
+			"DependencyType": "HARD"
+		},
+		"aws.greengrass.TokenExchangeService": {
+			"VersionRequirement": ">=2.0.0 <2.1.0",
+			"DependencyType": "HARD"
+		}
+	},
+	"Manifests": [
+		{
+			"Platform": {
+				"os": "linux",
+				"architecture": "aarch64"
+			},
+			"Lifecycle": {
+				"Run": {
+					"Script": "docker run 502513448943.dkr.ecr.cn-north-1.amazonaws.com.cn/yolo-v6-application:latest",
+					"RequiresPrivilege": "true"
+				}
+			},
+			"Artifacts": [
+				{
+					"Uri": "docker:502513448943.dkr.ecr.cn-north-1.amazonaws.com.cn/yolo-v6-application:latest",
+					"Unarchive": "NONE",
+					"Permission": {
+						"Read": "OWNER",
+						"Execute": "NONE"
+					}
+				}
+			]
+		}
+	],
+	"Lifecycle": {}
+}

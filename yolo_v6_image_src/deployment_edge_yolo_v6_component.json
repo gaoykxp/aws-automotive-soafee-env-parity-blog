@@ -1,0 +1,33 @@
+{
+    "targetArn": "arn:aws-cn:iot:cn-north-1:502513448943:thinggroup/MySOAFEE-Edge-GreengrassCoreGroup",
+    "deploymentName": "My-SOAFEE-GG",
+    "components": {
+        "aws.greengrass.Cli": {
+            "componentVersion": "2.7.0"
+        },
+        "aws.greengrass.DockerApplicationManager": {
+            "componentVersion": "2.0.6"
+        },
+        "aws.greengrass.LogManager": {
+            "componentVersion": "2.2.6"
+        },
+        "aws.greengrass.TokenExchangeService": {
+            "componentVersion": "2.0.3"
+        },
+        "com.example.My-YOLO-V6-Application": {
+            "componentVersion": "1.0.5"
+        }
+    },
+    "deploymentPolicies": {
+        "failureHandlingPolicy": "ROLLBACK",
+        "componentUpdatePolicy": {
+            "timeoutInSeconds": 60,
+            "action": "NOTIFY_COMPONENTS"
+        }
+    },
+    "iotJobConfiguration": {
+        "jobExecutionsRolloutConfig": {
+            "maximumPerMinute": 1000
+        }
+    }
+}

@@ -1,0 +1,12 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the greengreass component...
+      - aws greengrassv2 create-component-version --inline-recipe fileb://Yolo_v6_component_recipe.json
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - aws greengrassv2 create-deployment --cli-input-json file://deployment_ec2_yolo_v6_component.json

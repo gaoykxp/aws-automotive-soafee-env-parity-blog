@@ -1,0 +1,7 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo Build completed on `date`
+      - aws greengrassv2 create-deployment --cli-input-json file://deployment_edge_yolo_v6_component.json
