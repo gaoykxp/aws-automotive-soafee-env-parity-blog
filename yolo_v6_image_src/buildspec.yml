@@ -10,7 +10,7 @@ phases:
       - IMAGE_TAG=latest
       - echo $IMAGE_TAG
       - REPOSITORY_URI=${REPO_ECR}
-      - echo 10440321-419d-4126-b7cf-0c3e5ce80dc6 | docker login -u gaoykxp --password-stdin
+      - echo dckr_pat_V2EdQvcBONakG2HBcTan168yi14 | docker login -u gaoykxp --password-stdin
   build:
     commands:
       - echo Build started on `date`
